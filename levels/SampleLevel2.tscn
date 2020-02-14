@@ -19,28 +19,28 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 128, 80, 0, 80, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 64, 64 )
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 128, 128, 128, 0, 0, 128, 0, 128 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=9]
 0/name = "grassMid.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -69,7 +69,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -85,7 +85,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -101,7 +101,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -117,7 +117,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -133,7 +133,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -149,7 +149,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -165,20 +165,21 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
 
 [node name="Level01" type="Node2D"]
 __meta__ = {
-"_edit_vertical_guides_": [ 1921.0 ]
+"_edit_horizontal_guides_": [ 767.0 ],
+"_edit_vertical_guides_": [ 1920.0 ]
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -4
-scale = Vector2( 0.5, 0.3 )
-transform = Transform2D( 0.5, 0, 0, 0.3, 0, 0 )
+scale = Vector2( 0.2, 0.35 )
+transform = Transform2D( 0.2, 0, 0, 0.35, 0, 0 )
 
 [node name="bg_layer1" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -207,15 +208,13 @@ __meta__ = {
 [node name="bg_layer4" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1024.0
-margin_bottom = 1448.0
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 9 )
 collision_layer = 8
 collision_mask = 0
 format = 1
@@ -226,6 +225,10 @@ position = Vector2( 1752, 631 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -128, 502 )
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_right = 1920
+limit_bottom = 767
 
 [node name="Coin" parent="." instance=ExtResource( 14 )]
 position = Vector2( 384, 353 )
@@ -250,3 +253,5 @@ position = Vector2( 1344, 528 )
 
 [node name="Coin7" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1392, 576 )
+
+[editable path="Player"]
