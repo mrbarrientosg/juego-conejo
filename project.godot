@@ -21,15 +21,18 @@ _global_script_class_icons={
 [application]
 
 config/name="Juego"
-run/main_scene="res://levels/SampleLevel.tscn"
+run/main_scene="res://menu/MainScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerData="*res://autoload/PlayerData.tscn"
 
 [display]
 
 window/size/width=375
 window/size/height=667
-window/size/test_width=720
-window/size/test_height=1280
+window/size/always_on_top=true
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 
@@ -37,7 +40,7 @@ window/stretch/mode="2d"
 
 jump={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 

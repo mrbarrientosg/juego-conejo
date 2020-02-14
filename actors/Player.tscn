@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://assest/PNG/Players/bunny1_walk2.png" type="Texture" id=3]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
@@ -12,10 +12,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 22.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 23.0
 height = 8.0
 
@@ -27,26 +27,27 @@ speed = Vector2( 300, 1000 )
 [node name="skin" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -38 )
 scale = Vector2( 0.38, 0.38 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -30 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -171 )
+offset = Vector2( 50, 0 )
 current = true
+zoom = Vector2( 1.05, 1 )
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 7.0
+smoothing_speed = 10.0
 drag_margin_left = 0.0
 drag_margin_right = 0.0
-drag_margin_bottom = 0.1
+drag_margin_bottom = 0.0
 
 [node name="EnemyDetector" type="Area2D" parent="."]
 position = Vector2( 0, -30 )
@@ -55,6 +56,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
