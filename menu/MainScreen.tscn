@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assest/PNG/Background/bg_layer2.png" type="Texture" id=1]
 [ext_resource path="res://assest/PNG/Background/bg_layer4.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://assest/PNG/Ground/Grass/grassLeft.png" type="Texture" id=8]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menu/ChangeSceneButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scripts/ChangeSceneButton.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
@@ -144,7 +143,6 @@ __meta__ = {
 
 [node name="PlayButton" parent="VBoxContainer" instance=ExtResource( 10 )]
 text = "Play"
-script = ExtResource( 11 )
 next_scene_path = "res://levels/SampleLevel.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -154,7 +152,6 @@ format = 1
 tile_data = PoolIntArray( 524285, 1, 0, 524287, 0, 0, 458753, 0, 0, 458755, 0, 0, 458757, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 185, 588 )
 speed = Vector2( 0, 1000 )
 
@@ -163,6 +160,5 @@ current = false
 limit_left = -115
 limit_right = 525
 limit_bottom = 715
-[connection signal="button_up" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_button_up"]
 
 [editable path="Player"]

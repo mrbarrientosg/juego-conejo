@@ -9,6 +9,8 @@
 [node name="GameInterface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 12, 377 )
+mouse_filter = 2
 theme = ExtResource( 1 )
 script = ExtResource( 5 )
 __meta__ = {
@@ -29,10 +31,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Pause" type="Button" parent="."]
+margin_left = 22.0
+margin_top = 25.0
+margin_right = 34.0
+margin_bottom = 57.0
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PauseOverlay" type="ColorRect" parent="."]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0.27451 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,3 +88,4 @@ margin_right = 232.0
 margin_bottom = 113.0
 text = "Back to menu"
 next_scene_path = "res://menu/MainScreen.tscn"
+[connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
