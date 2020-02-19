@@ -3,7 +3,8 @@ extends Actor
 export var stomp_impulse: float = 1000.0
 
 func _ready() -> void:
-	$skin.play()
+	$skin.play("run")
+	set_process_unhandled_input(true)
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	_velocity = _calculate_stomp_velocity(_velocity, stomp_impulse)
@@ -11,15 +12,24 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 func _on_EnemyDetector_body_entered(body: Node) -> void:
 	queue_free()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if not event is InputEventMouseButton or !event.is_pressed() or event.is_echo():
+		return
+		
+	if event.button_index == BUTTON_LEFT:
+		var direction: = _get_direction(true)
+		_velocity = _calculate_move_velocity(_velocity, direction, speed)
+		_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+
 func _physics_process(delta: float) -> void:
 	var direction: = _get_direction()
 	_velocity = _calculate_move_velocity(_velocity, direction, speed)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
-func _get_direction() -> Vector2:
+func _get_direction(jump: bool = false) -> Vector2:
 	return Vector2(
 		1.0, 
-		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
+		-1.0 if jump and is_on_floor() else 1.0
 	)
 
 func _calculate_move_velocity(

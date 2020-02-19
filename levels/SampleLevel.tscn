@@ -3,18 +3,20 @@
 [ext_resource path="res://assest/PNG/Ground/Grass/grassMid.png" type="Texture" id=1]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assest/PNG/Background/bg_layer1.png" type="Texture" id=4]
-[ext_resource path="res://assest/PNG/Background/bg_layer3.png" type="Texture" id=5]
-[ext_resource path="res://assest/PNG/Background/bg_layer4.png" type="Texture" id=6]
-[ext_resource path="res://assest/PNG/Background/bg_layer2.png" type="Texture" id=7]
+[ext_resource path="res://objects/ParallaxBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assest/PNG/Ground/Grass/grassLeft.png" type="Texture" id=5]
 [ext_resource path="res://objects/Coin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/Portal2D.tscn" type="PackedScene" id=9]
-[ext_resource path="res://levels/SampleLevel2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/SampleLevel2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/Portal2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://menu/GameInterface.tscn" type="PackedScene" id=11]
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="TileSet" id=3]
 0/name = "grassMid.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -27,84 +29,71 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "grassLeft.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 128, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
 
 [node name="SampleLevel" type="Node2D"]
 __meta__ = {
-"_edit_vertical_guides_": [ 1536.0 ]
+"_edit_horizontal_guides_": [ 1021.0 ],
+"_edit_vertical_guides_": [ 0.0, 1667.0 ]
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -4
-scale = Vector2( 0.5, 0.3 )
-transform = Transform2D( 0.5, 0, 0, 0.3, 0, 0 )
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 100
 
-[node name="bg_layer1" type="TextureRect" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GameInterface" parent="CanvasLayer2" instance=ExtResource( 11 )]
 
-[node name="bg_layer2" type="TextureRect" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bg_layer3" type="TextureRect" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bg_layer4" type="TextureRect" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 4 )
+tile_set = SubResource( 3 )
 collision_layer = 8
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 196607, 0, 0, 131094, 0, 0, 327679, 0, 0, 262166, 0, 0, 458751, 0, 0, 393238, 0, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524296, 0, 0, 524298, 0, 0, 524300, 0, 0, 524302, 0, 0, 524304, 0, 0, 524306, 0, 0, 524308, 0, 0, 524310, 0, 0, 589824, 1, 0, 589827, 1, 0, 589830, 1, 0, 589833, 1, 0, 589836, 1, 0, 589839, 1, 0 )
+tile_data = PoolIntArray( 262168, 0, 0, 393240, 0, 0, 524312, 0, 0, 655384, 0, 0, 786456, 0, 0, 917504, 0, 0, 917506, 0, 0, 917508, 0, 0, 917510, 0, 0, 917512, 0, 0, 917514, 0, 0, 917516, 0, 0, 917518, 0, 0, 917520, 0, 0, 917522, 0, 0, 917524, 0, 0, 917526, 0, 0, 917528, 0, 0 )
 
-[node name="Portal2D" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1381, 501 )
-next_scene = ExtResource( 10 )
+[node name="Portal2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1506, 881 )
+next_scene = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 129, 136 )
+position = Vector2( 37, 871 )
+speed = Vector2( 200, 1000 )
+
+[node name="Camera2D" parent="Player" index="3"]
+limit_right = 1617
+limit_bottom = 1020
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1272, 511 )
+position = Vector2( 699, 881 )
 
-[node name="Coin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 498, 480 )
+[node name="Coins" type="Node" parent="."]
 
-[node name="Coin2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 545, 480 )
+[node name="Coin" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 501, 855 )
 
-[node name="Coin3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 598, 480 )
+[node name="Coin2" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 553, 855 )
 
-[node name="Coin4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 648, 480 )
+[node name="Coin3" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 612, 855 )
 
-[node name="Coin5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 698, 480 )
-
-[node name="Coin6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 750, 480 )
+[editable path="Player"]

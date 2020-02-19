@@ -1,60 +1,100 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assest/PNG/Players/bunny1_walk1.png" type="Texture" id=1]
+[ext_resource path="res://assest/PNG/Players/player2_Stand_0.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://assest/PNG/Players/bunny1_walk2.png" type="Texture" id=3]
+[ext_resource path="res://assest/PNG/Players/player2_Stand_2.png" type="Texture" id=3]
+[ext_resource path="res://assest/PNG/Players/player2_Stand_1.png" type="Texture" id=4]
+[ext_resource path="res://assest/PNG/Players/player_Run_3.png" type="Texture" id=5]
+[ext_resource path="res://assest/PNG/Players/player_Run_2.png" type="Texture" id=6]
+[ext_resource path="res://assest/PNG/Players/player_Run_1.png" type="Texture" id=7]
+[ext_resource path="res://assest/PNG/Players/player_Run_0.png" type="Texture" id=8]
+[ext_resource path="res://assest/PNG/Players/player_Run_4.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "kill",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "run",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "iddle",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 22.0
+[sub_resource type="Animation" id=2]
+resource_name = "bouncing"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("skin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 0.258816, 1.6245, 1.86607 ),
+"update": 0,
+"values": [ Vector2( 0, -34 ), Vector2( 0, -36 ), Vector2( 0, -37.9999 ) ]
+}
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
+radius = 21.0238
+
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 23.0
-height = 8.0
+height = 4.0
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 0, -10 )
 collision_mask = 8
 script = ExtResource( 2 )
 speed = Vector2( 300, 1000 )
 
 [node name="skin" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -38 )
-scale = Vector2( 0.38, 0.38 )
-frames = SubResource( 3 )
-animation = "run"
+position = Vector2( 0, -34 )
+frames = SubResource( 1 )
+animation = "kill"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bouncing"
+anims/bouncing = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -30 )
-shape = SubResource( 1 )
+position = Vector2( 0, -21 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -171 )
+offset = Vector2( 90, 0 )
 current = true
+zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 7.0
+smoothing_speed = 10.0
 drag_margin_left = 0.0
 drag_margin_right = 0.0
-drag_margin_bottom = 0.1
+drag_margin_bottom = 0.0
 
 [node name="EnemyDetector" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -30 )
 monitorable = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
-shape = SubResource( 2 )
+position = Vector2( 0, -2 )
+shape = SubResource( 4 )
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
