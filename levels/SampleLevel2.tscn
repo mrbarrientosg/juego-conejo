@@ -169,13 +169,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [node name="Level01" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 767.0 ],
+"_edit_horizontal_guides_": [ 1013.0 ],
 "_edit_vertical_guides_": [ 1920.0 ]
 }
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 0, 245 )
 tile_set = SubResource( 9 )
 collision_layer = 8
 collision_mask = 0
@@ -183,37 +184,37 @@ format = 1
 tile_data = PoolIntArray( 262157, 2, 0, 327689, 2, 0, 393221, 2, 0, 393230, 8, 0, 393232, 0, 0, 393234, 7, 0, 393244, 0, 0, 589820, 1, 0, 589822, 0, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524296, 0, 0, 524298, 0, 0, 524300, 0, 0, 524302, 9, 0, 524304, 3, 0, 524306, 6, 0, 524307, 5, 0, 524308, 7, 0, 524316, 3, 0, 720892, 3, 0, 720894, 3, 0, 655360, 3, 0, 655362, 3, 0, 655364, 3, 0, 655366, 3, 0, 655368, 3, 0, 655370, 3, 0, 655372, 3, 0, 655374, 3, 0, 655376, 3, 0, 655378, 3, 0, 655380, 6, 0, 655382, 0, 0, 655384, 0, 0, 655386, 0, 0, 655388, 3, 0 )
 
 [node name="Portal2D" parent="." instance=ExtResource( 15 )]
-position = Vector2( 1752, 631 )
+position = Vector2( 1752, 869 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -128, 502 )
+position = Vector2( -128, 739 )
 
-[node name="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" parent="Player" index="3"]
 limit_right = 1920
-limit_bottom = 767
+limit_bottom = 1010
 
 [node name="Coin" parent="." instance=ExtResource( 14 )]
-position = Vector2( 384, 353 )
+position = Vector2( 384, 597 )
 
 [node name="Coin2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 640, 288 )
+position = Vector2( 640, 528 )
 
 [node name="Coin3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 896, 224 )
+position = Vector2( 896, 465 )
 
 [node name="Coin4" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1208, 392 )
+position = Vector2( 1208, 641 )
 
 [node name="Coin5" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1256, 434 )
+position = Vector2( 1256, 683 )
 
 [node name="Coin11" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1296, 481 )
+position = Vector2( 1296, 730 )
 
 [node name="Coin6" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1344, 528 )
+position = Vector2( 1344, 777 )
 
 [node name="Coin7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1392, 576 )
+position = Vector2( 1392, 825 )
 
 [editable path="Player"]

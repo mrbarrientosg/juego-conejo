@@ -3,7 +3,7 @@ extends Actor
 export var stomp_impulse: float = 1000.0
 
 func _ready() -> void:
-	$skin.play()
+	$skin.play("run")
 	set_process_unhandled_input(true)
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:

@@ -121,7 +121,7 @@ tile_data = PoolIntArray( 524269, 0, 0, 524271, 0, 0, 524273, 0, 0, 524275, 0, 0
 position = Vector2( 190, 586 )
 speed = Vector2( 0, 1000 )
 
-[node name="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" parent="Player" index="3"]
 current = false
 limit_left = -115
 limit_right = 525

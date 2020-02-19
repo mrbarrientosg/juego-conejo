@@ -12,11 +12,8 @@
 [ext_resource path="res://menu/ChangeSceneButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Montserrat-ExtraBold.ttf" type="DynamicFontData" id=12]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 12 )
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
@@ -24,7 +21,10 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="TileSet" id=5]
 0/name = "grassMid.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -37,7 +37,7 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -53,7 +53,7 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -69,7 +69,7 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -136,11 +136,11 @@ __meta__ = {
 [node name="Score" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -139.5
+margin_left = -137.5
 margin_top = 237.0
-margin_right = 139.5
+margin_right = 141.5
 margin_bottom = 268.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Your final score is %s."
 align = 1
@@ -175,7 +175,7 @@ next_scene_path = "res://menu/MainScreen.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 76.5, 140 )
-tile_set = SubResource( 4 )
+tile_set = SubResource( 5 )
 format = 1
 tile_data = PoolIntArray( 524285, 1, 0, 524287, 0, 0, 458753, 0, 0, 458755, 0, 0, 458757, 2, 0 )
 
@@ -189,7 +189,5 @@ current = false
 limit_left = -115
 limit_right = 525
 limit_bottom = 715
-[connection signal="button_up" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_button_up"]
-[connection signal="button_up" from="VBoxContainer/Back" to="VBoxContainer/Back" method="_on_button_up"]
 
 [editable path="Player"]

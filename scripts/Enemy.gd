@@ -11,6 +11,13 @@ func _on_StompDetector_body_entered(body: Node) -> void:
 		return
 	_die()
 
+func _on_Player_body_entered(body: Node) -> void:
+	print("wea")
+	body.get_node("skin").play("kill")
+
+func _on_VisibilityEnabler2D_screen_exited() -> void:
+	queue_free()
+
 func _physics_process(delta: float) -> void:
 	_velocity.y *= gravity * delta
 	if is_on_wall():
@@ -20,4 +27,8 @@ func _physics_process(delta: float) -> void:
 func _die() -> void:
 	PlayerData.score += score
 	queue_free()
+
+
+
+
 
