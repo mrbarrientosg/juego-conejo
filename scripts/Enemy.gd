@@ -12,7 +12,6 @@ func _on_StompDetector_body_entered(body: Node) -> void:
 	_die()
 
 func _on_Player_body_entered(body: Node) -> void:
-	print("wea")
 	body.get_node("skin").play("kill")
 
 func _on_VisibilityEnabler2D_screen_exited() -> void:

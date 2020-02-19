@@ -12,8 +12,8 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": true,
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": false,
 "name": "kill",
 "speed": 15.0
 }, {
@@ -61,7 +61,7 @@ speed = Vector2( 300, 1000 )
 [node name="skin" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -34 )
 frames = SubResource( 1 )
-animation = "kill"
+animation = "run"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "bouncing"
@@ -96,5 +96,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 position = Vector2( 0, -2 )
 shape = SubResource( 4 )
+[connection signal="animation_finished" from="skin" to="." method="_on_skin_animation_finished"]
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

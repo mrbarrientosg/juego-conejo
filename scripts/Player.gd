@@ -50,3 +50,7 @@ func _calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vect
 	var new_velocity: = linear_velocity
 	new_velocity.y = -impulse
 	return new_velocity
+
+func _on_skin_animation_finished() -> void:
+	if $skin.animation == "kill":
+		$skin.play("run")
